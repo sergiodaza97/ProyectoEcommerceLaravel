@@ -25,7 +25,7 @@
 
 
                             <!--====== Product Detail Zoom ======-->
-                            <div class="pd u-s-m-b-30">
+                            {{-- <div class="pd u-s-m-b-30">
                                 <div class="slider-fouc pd-wrap">
                                     <div id="pd-o-initiate">
                                         <div class="pd-o-img-wrap" data-src="
@@ -36,13 +36,13 @@
                                             @endif">
                                             <img class="u-img-fluid" src="
                                             @if(count($product->images)>0)
-                                                {{$product->images[0]->url}}
+                                                {{$product->images[1]->url}}
                                             @else
                                                 https://via.placeholder.com/200x200.png?text=no+hay+imagenes
                                             @endif">
                                             <img class="u-img-fluid" src="
                                             @if(count($product->images)>0)
-                                                {{$product->images[0]->url}}
+                                                {{$product->images[2]->url}}
                                             @else
                                                 https://via.placeholder.com/200x200.png?text=no+hay+imagenes
                                             @endif" data-zoom-image="images/product/product-d-1.jpg" alt=""></div>
@@ -61,7 +61,91 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div> --}}
+                            
+
+                            <!--====== Product Detail Zoom ======-->
+                            <div class="pd u-s-m-b-30">
+                                <div class="slider-fouc pd-wrap">
+                                    <div id="pd-o-initiate">
+                                        <div class="pd-o-img-wrap" data-src="@if(count($product->images)>0)
+                                            {{$product->images[0]->url}}
+                                        @else
+                                            https://via.placeholder.com/200x200.png?text=no+hay+imagenes
+                                        @endif">
+
+                                            <img class="u-img-fluid" src="@if(count($product->images)>0)
+                                            {{$product->images[0]->url}}
+                                        @else
+                                            https://via.placeholder.com/200x200.png?text=no+hay+imagenes
+                                        @endif" data-zoom-image="@if(count($product->images)>0)
+                                        {{$product->images[0]->url}}
+                                    @else
+                                        https://via.placeholder.com/200x200.png?text=no+hay+imagenes
+                                    @endif" alt=""></div>
+                                    <div class="pd-o-img-wrap" data-src="@if(count($product->images)>0)
+                                        {{$product->images[1]->url}}
+                                    @else
+                                        https://via.placeholder.com/200x200.png?text=no+hay+imagenes
+                                    @endif">
+
+                                        <img class="u-img-fluid" src="@if(count($product->images)>0)
+                                        {{$product->images[1]->url}}
+                                    @else
+                                        https://via.placeholder.com/200x200.png?text=no+hay+imagenes
+                                    @endif" data-zoom-image="@if(count($product->images)>0)
+                                    {{$product->images[1]->url}}
+                                @else
+                                    https://via.placeholder.com/200x200.png?text=no+hay+imagenes
+                                @endif" alt=""></div>
+                                <div class="pd-o-img-wrap" data-src="@if(count($product->images)>0)
+                                    {{$product->images[2]->url}}
+                                @else
+                                    https://via.placeholder.com/200x200.png?text=no+hay+imagenes
+                                @endif">
+
+                                    <img class="u-img-fluid" src="@if(count($product->images)>0)
+                                    {{$product->images[2]->url}}
+                                @else
+                                    https://via.placeholder.com/200x200.png?text=no+hay+imagenes
+                                @endif" data-zoom-image="@if(count($product->images)>0)
+                                {{$product->images[2]->url}}
+                            @else
+                                https://via.placeholder.com/200x200.png?text=no+hay+imagenes
+                            @endif" alt=""></div>
+                                    </div>
+
+                                    <span class="pd-text">Click for larger zoom</span>
+                                </div>
+                                <div class="u-s-m-t-15">
+                                    <div class="slider-fouc">
+                                        <div id="pd-o-thumbnail">
+                                            <div>
+
+                                                <img class="u-img-fluid" src="@if(count($product->images)>0)
+                                                {{$product->images[0]->url}}
+                                            @else
+                                                https://via.placeholder.com/200x200.png?text=no+hay+imagenes
+                                            @endif" alt=""></div>
+                                            <div>
+
+                                                <img class="u-img-fluid" src="@if(count($product->images)>0)
+                                                {{$product->images[1]->url}}
+                                            @else
+                                                https://via.placeholder.com/200x200.png?text=no+hay+imagenes
+                                            @endif" alt=""></div>
+                                            <div>
+
+                                                <img class="u-img-fluid" src="@if(count($product->images)>0)
+                                                {{$product->images[2]->url}}
+                                            @else
+                                                https://via.placeholder.com/200x200.png?text=no+hay+imagenes
+                                            @endif" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
                             <!--====== End - Product Detail Zoom ======-->
                         </div>
                         <div class="col-lg-7">
