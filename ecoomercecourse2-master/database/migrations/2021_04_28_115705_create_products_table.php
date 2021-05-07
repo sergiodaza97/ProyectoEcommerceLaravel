@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-
 use Illuminate\Database\Schema\Blueprint;
-
 use Illuminate\Support\Facades\Schema;
 
 class CreateProductsTable extends Migration
@@ -20,9 +18,9 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name',100);
-            $table->string('description');
+            $table->string('description',10000);
             $table->bigInteger('price');
-            $table->boolean('available')->default(true);     
+            $table->boolean('available')->default(true);
         });
     }
 
