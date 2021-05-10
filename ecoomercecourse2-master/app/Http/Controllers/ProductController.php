@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Image;
+use App\Models\ProductHasCategory;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -20,6 +22,7 @@ class ProductController extends Controller
         return view('components/products.index',compact('products','categories'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +30,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view ('components/products.create',compact('categories'));
     }
 
     /**
@@ -38,7 +42,37 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dataProductoForm = $request->validate([
+            'name' => ['string', 'required'],
+            'description' => ['string', 'required'],
+            'price' => ['numeric','required'],
+            'stock' => ['numeric','required'],
+            'categories' => ['required'],
+            'available' => ['nullable']
+        ]);
+
+        $newProduct = new Product();
+        $newProduct->name = $dataProductoForm['name'];
+        $newProduct->description = $dataProductoForm['description'];
+        $newProduct->price = $dataProductoForm['price'];
+        $newProduct->stock = $dataProductoForm['stock'];
+        isset($dataProductoForm['available']) ? $newProduct->available = true : $newProduct->available = false;
+
+        $newProduct ->save();
+        foreach ($dataProductoForm['categories'] as $category) {
+            $cat = new ProductHasCategory ();
+            $cat->product_id =  $newProduct->id;
+            $cat->category_id = $category->id;
+            $cat->save();
+        }
+
+        foreach ($dataProductoForm['images'] as $image) {
+            $img = new Image ();
+            $img->product_id =  $newProduct->id;
+            $img->url = $image->url['url'];
+            $img->save();
+        }    
+        
     }
 
     /**
@@ -68,7 +102,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $products = Product::where('available',true)->get();
+        $categories = Category::all();
+        return view('components/products.shop',compact('products','categories'));
     }
 
     /**

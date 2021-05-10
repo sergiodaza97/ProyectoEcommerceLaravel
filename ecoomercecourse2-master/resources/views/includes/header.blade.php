@@ -1337,3 +1337,24 @@
             </nav>
             <!--====== End - Nav 2 ======-->
  
+                                                    <a class="mini-link btn--e-brand-b-2" href="checkout.html">PROCEED TO CHECKOUT</a>
+
+                                                    <a class="mini-link btn--e-transparent-secondary-b-2" href="cart.html">VIEW CART</a></div>
+                                            </div>
+                                            <!--====== End - Mini Product Statistics ======-->
+                                        </div>
+                                        <!--====== End - Dropdown ======-->
+                                    </li>
+                                </ul>
+                                <!--====== End - List ======-->
+                            </div>
+                            <!--====== End - Menu ======-->
+                        </div>
+                        <!--====== End - Dropdown Main plugin ======-->
+                    </div>
+                    <!--====== End - Secondary Nav ======-->
+                </div>
+            </nav>
+            <!--====== End - Nav 2 ======-->
+        </header>
+        <!--====== End - Main Header ======-->

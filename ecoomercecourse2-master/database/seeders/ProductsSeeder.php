@@ -29,7 +29,7 @@ class ProductsSeeder extends Seeder
             'available' => 1,
             'stock' => 3,
             'reviews' => 4.3,
-            'video' => 'https://youtu.be/SuvHTomh3ZQ',
+            'video' => 'https://www.youtube.com/embed/SuvHTomh3ZQ',
             'discount' => 20
         ]);
         DB::table('products')->insert([
@@ -41,7 +41,7 @@ class ProductsSeeder extends Seeder
             'available' => 1,
             'stock' => 5,
             'reviews' => 4.0,
-            'video' => 'https://www.youtube.com/watch?v=oLchIcAKOxw',
+            'video' => 'https://www.youtube.com/embed/oLchIcAKOxw',
             'discount' => 10
         ]);
         DB::table('products')->insert([
@@ -56,7 +56,7 @@ class ProductsSeeder extends Seeder
             'available' => 1,
             'stock' => 5,
             'reviews' => 3.8,
-            'video' => 'https://www.youtube.com/watch?v=ljOWs6qzhbY',
+            'video' => 'https://www.youtube.com/embed/ljOWs6qzhbY',
             'discount' => 15
         ]);
         DB::table('products')->insert([
@@ -68,7 +68,7 @@ class ProductsSeeder extends Seeder
             'available' => 1,
             'stock' => 10,
             'reviews' => 4.5,
-            'video' => 'https://www.youtube.com/watch?v=mPxtFqTEWv0',
+            'video' => 'https://www.youtube.com/embed/mPxtFqTEWv0',
             'discount' => 25
         ]);
         DB::table('products')->insert([
@@ -80,7 +80,7 @@ class ProductsSeeder extends Seeder
             'available' => 1,
             'stock' => 7,
             'reviews' => 4.2,
-            'video' => 'https://www.youtube.com/watch?v=SlyKOZ8mYKM',
+            'video' => 'https://www.youtube.com/embed/SlyKOZ8mYKM',
             'discount' => 20
         ]);
         DB::table('products')->insert([
@@ -92,7 +92,7 @@ class ProductsSeeder extends Seeder
             'available' => 1,
             'stock' => 5,
             'reviews' => 3.9,
-            'video' => 'https://www.youtube.com/watch?v=oIr0c1UlfMk',
+            'video' => 'https://www.youtube.com/embed/oIr0c1UlfMk',
             'discount' => 10
         ]);
     }

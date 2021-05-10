@@ -68,7 +68,24 @@
                             <div class="pd u-s-m-b-30">
                                 <div class="slider-fouc pd-wrap">
                                     <div id="pd-o-initiate">
+                                        @for ($i = 0; $i < count($product->images); $i++)
                                         <div class="pd-o-img-wrap" data-src="@if(count($product->images)>0)
+                                            {{$product->images[$i]->url}}
+                                        @else
+                                            https://via.placeholder.com/200x200.png?text=no+hay+imagenes
+                                        @endif">
+
+                                        <img class="u-img-fluid" src="@if(count($product->images)>0)
+                                            {{$product->images[$i]->url}}
+                                        @else
+                                            https://via.placeholder.com/200x200.png?text=no+hay+imagenes
+                                        @endif" data-zoom-image="@if(count($product->images)>0)
+                                            {{$product->images[$i]->url}}
+                                        @else
+                                            https://via.placeholder.com/200x200.png?text=no+hay+imagenes
+                                        @endif" alt=""></div>
+                                        @endfor
+                                        {{-- <div class="pd-o-img-wrap" data-src="@if(count($product->images)>0)
                                             {{$product->images[0]->url}}
                                         @else
                                             https://via.placeholder.com/200x200.png?text=no+hay+imagenes
@@ -78,7 +95,7 @@
                                             {{$product->images[0]->url}}
                                         @else
                                             https://via.placeholder.com/200x200.png?text=no+hay+imagenes
-                                        @endif" data-zoom-image="@if(count($product->images)>0)
+                                        @endif"> data-zoom-image="@if(count($product->images)>0)
                                         {{$product->images[0]->url}}
                                     @else
                                         https://via.placeholder.com/200x200.png?text=no+hay+imagenes
@@ -112,7 +129,7 @@
                                 {{$product->images[2]->url}}
                             @else
                                 https://via.placeholder.com/200x200.png?text=no+hay+imagenes
-                            @endif" alt=""></div>
+                            @endif" alt=""></div> --}}
                                     </div>
 
                                     <span class="pd-text">Click for larger zoom</span>
@@ -120,9 +137,15 @@
                                 <div class="u-s-m-t-15">
                                     <div class="slider-fouc">
                                         <div id="pd-o-thumbnail">
-                                            <div>
-
+                                                @for ($i = 0; $i < count($product->images); $i++)
+                                                <div>
                                                 <img class="u-img-fluid" src="@if(count($product->images)>0)
+                                                    {{$product->images[$i]->url}}
+                                                @else
+                                                    https://via.placeholder.com/200x200.png?text=no+hay+imagenes
+                                                @endif" alt=""></div>
+                                                @endfor
+                                                {{-- <img class="u-img-fluid" src="@if(count($product->images)>0)
                                                 {{$product->images[0]->url}}
                                             @else
                                                 https://via.placeholder.com/200x200.png?text=no+hay+imagenes
@@ -140,7 +163,7 @@
                                                 {{$product->images[2]->url}}
                                             @else
                                                 https://via.placeholder.com/200x200.png?text=no+hay+imagenes
-                                            @endif" alt=""></div>
+                                            @endif" alt=""></div> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -167,7 +190,7 @@
 
                                         <span class="pd-detail__review u-s-m-l-4">
 
-                                            <a data-click-scroll="#view-review">{{$product->review}} Reviews</a></span></div>
+                                            <a data-click-scroll="#view-review">{{$product->reviewss}} Reviews</a></span></div>
                                 </div>
                                 <div class="u-s-m-b-15">
                                     <div class="pd-detail__inline">
@@ -286,10 +309,10 @@
                                     <div class="tab-pane fade show active" id="pd-desc">
                                         <div class="pd-tab__desc">
                                             <div class="u-s-m-b-15">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                                <p>{{ $product->description }}</p>
                                             </div>
-                                            <div class="u-s-m-b-30"><iframe src=" {{$product->urlvideo}} " allowfullscreen></iframe></div>
-                                            <div class="u-s-m-b-30">
+                                            <div class="u-s-m-b-30"><iframe src=" {{$product->video}} " allowfullscreen></iframe></div>
+                                            <div class="u-s-m-b-30"> 
                                                 <ul>
                                                     <li><i class="fas fa-check u-s-m-r-8"></i>
 
