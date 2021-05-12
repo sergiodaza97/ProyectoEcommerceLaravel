@@ -102,9 +102,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $products = Product::where('available',true)->get();
-        $categories = Category::all();
-        return view('components/products.shop',compact('products','categories'));
+        //
     }
 
     /**
@@ -116,7 +114,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $products = Product::where('available',true)->get();
+        $categories = Category::all();
+        return view('components/products.update',compact('products','categories'));
     }
 
     /**

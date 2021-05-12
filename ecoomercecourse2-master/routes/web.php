@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
@@ -7,6 +8,7 @@ use App\Models\User;
 use Database\Seeders\ProductsSeeder;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +39,6 @@ use App\Http\Controllers\ProductController;
 
 
 Route::resource('products', ProductController::class);
+Route::resource('cart', CartController::class);
+Route::resource('shop', ShopController::class);
+Route::get('cart/addOne/{product}', [CartController::class, 'addOne'])->name('cart.addOne');
