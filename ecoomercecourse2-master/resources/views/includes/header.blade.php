@@ -1,13 +1,44 @@
 <!--====== Nav 1 ======-->
+<style>
+    /* The close button */
+    .closebtn {
+        margin-left: 15px;
+        color: #ccccc;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    /* When moving the mouse over the close button */
+    .closebtn:hover {
+        color: black;
+    }
+</style>
+
+@if (session()->has('status'))
+
+    <div class="w3-panel w3-pale-green w3-border">
+        <h3>Success!</h3>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <p>{{ session()->get('status') }}</p>
+    </div>
+
+@endif
+
+
 <nav class="primary-nav primary-nav-wrapper--border">
     <div class="container">
+
+
 
         <!--====== Primary Nav ======-->
         <div class="primary-nav">
 
             <!--====== Main Logo ======-->
 
-            <a class="main-logo" href="{{ route('products.index') }}">
+            <a class="main-logo" href="index.html">
 
                 <img src="{{ asset('images/logo/logo-1.png') }}" alt=""></a>
             <!--====== End - Main Logo ======-->
@@ -46,30 +77,40 @@
 
                             <span class="js-menu-toggle"></span>
                             <ul style="width:120px">
+
+                                @if (Auth::check())
                                 <li>
 
-                                    <a href="dashboard.html"><i class="fas fa-user-circle u-s-m-r-6"></i>
+                                    <a href="{{ route('Account.index') }}"><i class="fas fa-user-circle u-s-m-r-6"></i>
 
-                                        <span>Account</span></a>
+                                        <span>{{ Auth::user()->name }}</span></a>
                                 </li>
+
                                 <li>
 
-                                    <a href="signup.html"><i class="fas fa-user-plus u-s-m-r-6"></i>
+                                    <a href="{{ route('logout')}}"><i class="fas fa-lock-open u-s-m-r-6"></i>
+
+                                        <span>Signout</span></a>
+                                </li>
+                                @else
+
+                                 
+                                <li>
+
+                                    <a href="{{ route ('register')}}"><i class="fas fa-user-plus u-s-m-r-6"></i>
 
                                         <span>Signup</span></a>
                                 </li>
                                 <li>
 
-                                    <a href="signin.html"><i class="fas fa-lock u-s-m-r-6"></i>
+                                    <a href="{{ route ('login')}}"><i class="fas fa-lock u-s-m-r-6"></i>
 
                                         <span>Signin</span></a>
                                 </li>
-                                <li>
-
-                                    <a href="signup.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
-
-                                        <span>Signout</span></a>
-                                </li>
+                                    
+                                @endif
+                               
+                               
                             </ul>
                             <!--====== End - Dropdown ======-->
                         </li>
@@ -1496,7 +1537,7 @@
                                         <span class="subtotal-value">
 
                                             @if (session()->has('cart'))
-                                                {{ count(session()->get('cart.products')) }}
+                                                algun valor
 
                                             @else
                                                 0
@@ -1506,7 +1547,7 @@
                                     </div>
                                     <div class="mini-action">
 
-                                        <a class="mini-link btn--e-brand-b-2" href="checkout.html">PROCEED TO
+                                        <a class="mini-link btn--e-brand-b-2" href="{{ route('order.index') }}">PROCEED TO
                                             CHECKOUT</a>
 
                                         <a class="mini-link btn--e-transparent-secondary-b-2"

@@ -27,7 +27,7 @@
                                                 @foreach ($categories as $cat)
                                                     <li class="filter__category-wrapper">
 
-                                                        <button class="btn filter__btn filter__btn" type="button"
+                                                        <button name="buscarpor" class="btn filter__btn filter__btn" type="button"
                                                             data-filter=".{{ strtoupper($cat->name) }}">{{ strtoupper($cat->name) }}</button>
 
                                                     </li>
@@ -198,7 +198,8 @@
                                                         </div>
                                                         <div class="product-m__add-cart">
 
-                                                            <a class="btn--e-brand" data-modal="modal"
+                                                            
+                                                            <a href=" {{ route('cart.addOne', $product->id) }}" class="btn--e-brand" data-modal="modal"
                                                                 data-modal-id="#add-to-cart">Add to Cart</a>
                                                         </div>
                                                     </div>

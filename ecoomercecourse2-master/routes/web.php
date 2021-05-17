@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
@@ -38,7 +40,22 @@ use App\Http\Controllers\ShopController;
 // });
 
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
 Route::resource('products', ProductController::class);
 Route::resource('cart', CartController::class);
 Route::resource('shop', ShopController::class);
+Route::resource('order', OrderController::class);
+Route::resource('Account', AccountController::class);
+
 Route::get('cart/addOne/{product}', [CartController::class, 'addOne'])->name('cart.addOne');
+Route::get('cart/destroy/{id}', [CartController::class,'destroy'])->name('cart.destroy');
+Route::get('destroy', [CartController::class,'destroyAll'])->name('cart.destroyAll');
