@@ -202,7 +202,7 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroyAll(){
+    public function clear(){
         $cartProducts = session() -> get ('cart.products');
         unset($cartProducts);
         session() -> put ('cart', [ 'products' => [] ]);

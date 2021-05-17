@@ -137,7 +137,7 @@
                             </div>
                             <div class="route-box__g2">
 
-                                <a class="route-box__link" href="{{ route('cart.destroyAll') }}"><i class="fas fa-trash"></i>
+                                <a class="route-box__link" href="{{ route('cart.clear') }}"><i class="fas fa-trash"></i>
 
                                     <span>CLEAR CART</span></a>
                                 <a class="route-box__link" href="{{ route('cart.index') }}"><i class="fas fa-sync"></i>

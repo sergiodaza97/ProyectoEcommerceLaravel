@@ -58,4 +58,4 @@ Route::resource('Account', AccountController::class);
 
 Route::get('cart/addOne/{product}', [CartController::class, 'addOne'])->name('cart.addOne');
 Route::get('cart/destroy/{id}', [CartController::class,'destroy'])->name('cart.destroy');
-Route::get('destroy', [CartController::class,'destroyAll'])->name('cart.destroyAll');
+Route::get('destroy', [CartController::class,'clear'])->name('cart.clear');

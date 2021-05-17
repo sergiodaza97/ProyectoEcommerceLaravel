@@ -26,12 +26,20 @@
                                             <ul class="shop-w__category-list gl-scroll">
                                                 @foreach ($categories as $cat)
                                                     <li class="filter__category-wrapper">
+                                                        
 
                                                         <button name="buscarpor" class="btn filter__btn filter__btn" type="button"
                                                             data-filter=".{{ strtoupper($cat->name) }}">{{ strtoupper($cat->name) }}</button>
 
                                                     </li>
                                                 @endforeach
+                                                <form class="form-inline">
+
+                                                    <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por categoria" aria-label="Search">
+                                                
+                                                       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                                                  </form>
+
                                             </ul>
                                         </div>
                                     </div>

@@ -13,4 +13,9 @@ class Category extends Model
     public function products (){
         return $this->belongsToMany(Product::class,'products_has_categories');
      }
+     public function scopeNombres($query, $name) {
+    	if ($name) {
+    		return $query->where('name','like',"%$name%");
+    	}
+    } 
 }

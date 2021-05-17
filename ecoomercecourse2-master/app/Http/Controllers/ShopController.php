@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Shop;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -15,7 +16,12 @@ class ShopController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Product::where('available',true)->get();
+
+        $name = $request->get('buscarpor');
+
+        $products = Product::where('name','like',"%$name%")->paginate(5);
+        
+        // $products = Product::where('available',true)->get();
         $categories = Category::all();
         return view('components/shop.index',compact('products','categories'));
     }
